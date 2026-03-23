@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Coming Soon</title>
-    <meta name="description" content="Something exciting is on the way." />
+    <title>SHIP</title>
+    <meta name="description" content="Coming soon." />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@700&display=swap"
       rel="stylesheet"
     />
 
@@ -20,75 +20,68 @@
         --color-ship-white: #fafafa;
         --color-ship-accent: #3b82f6;
         --color-ship-gray-500: #6b7280;
+        --color-ship-gray-800: #1f2937;
         --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+        --font-wordmark: "Syne", system-ui, sans-serif;
       }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      html {
-        background: var(--color-ship-black);
-        color: var(--color-ship-white);
-      }
+      html { background: var(--color-ship-black); color: var(--color-ship-white); }
 
       body {
         font-family: var(--font-sans);
         background: var(--color-ship-black);
         color: var(--color-ship-white);
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      ::selection {
-        background: var(--color-ship-accent);
-        color: #ffffff;
-      }
-
-      .page {
         min-height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0 24px;
+        padding: 48px 24px;
       }
 
-      .page-content {
-        max-width: 480px;
-        text-align: center;
+      ::selection { background: var(--color-ship-accent); color: #fff; }
+
+      .wordmark {
+        font-family: var(--font-wordmark);
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-ship-white);
+        text-decoration: none;
+        margin-bottom: 16px;
       }
 
-      .page-title {
-        margin: 0 0 16px;
-        font-size: clamp(2.5rem, 4vw, 3rem);
-        font-weight: 600;
-        letter-spacing: -0.04em;
-      }
-
-      .page-subtitle {
-        margin: 0;
-        font-size: 1.125rem;
+      .tagline {
+        font-size: 0.875rem;
         color: var(--color-ship-gray-500);
-        line-height: 1.6;
+        margin: 0 0 64px;
       }
+
+      footer {
+        display: flex;
+        gap: 20px;
+      }
+
+      footer a {
+        font-size: 0.75rem;
+        color: var(--color-ship-gray-500);
+        text-decoration: none;
+      }
+      footer a:hover { color: var(--color-ship-white); }
     </style>
   </head>
   <body>
-    <main class="page">
-      <div class="page-content">
-        <h1 class="page-title">Coming Soon</h1>
-        <p class="page-subtitle">
-          Something exciting is on the way. Check back later.
-        </p>
-      </div>
-    </main>
+    <a href="/" class="wordmark">SHIP</a>
+    <p class="tagline">Coming soon.</p>
+    <footer>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+    </footer>
   </body>
 </html>
