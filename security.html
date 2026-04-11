@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Security — SHIP</title>
+    <meta name="description" content="Security overview for SHIP (shipplatform.ai)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --color-ship-black: #0a0a0a;
+        --color-ship-white: #fafafa;
+        --color-ship-accent: #3b82f6;
+        --color-ship-gray-300: #d1d5db;
+        --color-ship-gray-400: #9ca3af;
+        --color-ship-gray-500: #6b7280;
+        --color-ship-gray-800: #1f2937;
+        --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+        --font-wordmark: "Syne", system-ui, sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+
+      html {
+        background: var(--color-ship-black);
+        color: var(--color-ship-white);
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background: var(--color-ship-black);
+        color: var(--color-ship-white);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      ::selection {
+        background: var(--color-ship-accent);
+        color: #fff;
+      }
+
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 128px 24px 96px;
+      }
+
+      .wordmark {
+        font-family: var(--font-wordmark);
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--color-ship-white);
+        display: inline-block;
+        margin-bottom: 48px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-family: var(--font-wordmark);
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+
+      .meta {
+        margin: 0 0 40px;
+        font-size: 0.875rem;
+        color: var(--color-ship-gray-500);
+      }
+
+      .body { color: var(--color-ship-gray-300); line-height: 1.75; }
+
+      section { margin-bottom: 2rem; }
+
+      h2 {
+        margin: 0 0 8px;
+        font-family: var(--font-wordmark);
+        font-size: 1.125rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--color-ship-white);
+      }
+
+      p { margin: 8px 0; }
+      ul { margin: 10px 0; padding-left: 1.5rem; }
+      li { margin-bottom: 4px; color: var(--color-ship-gray-400); }
+
+      a { color: var(--color-ship-accent); }
+
+      .back {
+        margin-top: 64px;
+        padding-top: 32px;
+        border-top: 1px solid var(--color-ship-gray-800);
+      }
+
+      .back a {
+        font-size: 0.875rem;
+        color: var(--color-ship-gray-500);
+        text-decoration: none;
+      }
+      .back a:hover { color: var(--color-ship-white); }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <a href="/" class="wordmark">SHIP</a>
+
+      <h1>Security</h1>
+      <p class="meta">Last updated: March 2026</p>
+
+      <div class="body">
+        <section>
+          <h2>Data in Transit</h2>
+          <p>
+            All data between your browser and SHIP is encrypted using TLS 1.2 or higher.
+          </p>
+        </section>
+
+        <section>
+          <h2>Integrations</h2>
+          <p>
+            Product integrations (GitHub, Jira, Confluence, Linear, Notion, Slack) are designed for
+            <strong style="color: var(--color-ship-white)">read-only</strong> access wherever
+            vendor APIs allow. Credentials and API tokens are stored encrypted and never logged
+            in plain text.
+          </p>
+        </section>
+
+        <section>
+          <h2>Hosting</h2>
+          <p>
+            The SHIP website is hosted on Vercel with automatic HTTPS. Infrastructure follows
+            AWS security best practices where applicable.
+          </p>
+        </section>
+
+        <section>
+          <h2>Responsible Disclosure</h2>
+          <p>
+            If you discover a security vulnerability, please report it responsibly by emailing
+            <a href="mailto:security@shipplatform.ai">security@shipplatform.ai</a>. We aim to
+            respond within 72 hours and will keep you informed as we address the issue.
+          </p>
+          <p>
+            Please do not publicly disclose vulnerabilities before we have had a reasonable
+            opportunity to investigate and remediate.
+          </p>
+        </section>
+
+        <section>
+          <h2>Related Policies</h2>
+          <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="back">
+        <a href="/">&larr; Back to home</a>
+      </div>
+    </div>
+  </body>
+</html>
