@@ -5,17 +5,31 @@ import { motion } from "framer-motion";
 
 const TEAM_SIZES = ["< 10", "10–50", "50–200", "200+"];
 
-const GOOGLE_SHEETS_URL =
-  process.env.NEXT_PUBLIC_GOOGLE_SHEETS_URL || "";
+const SHIP_API_BASE =
+  (process.env.NEXT_PUBLIC_SHIP_API_URL || "").replace(/\/$/, "") || "";
 
-async function submitToSheet(data: Record<string, string>) {
-  if (!GOOGLE_SHEETS_URL) return;
-  await fetch(GOOGLE_SHEETS_URL, {
+/** Creates or updates a waitlist row in ship-backend (`waitlist` status until first Google sign-in). */
+async function submitToShipApi(payload: {
+  email: string;
+  company?: string;
+  teamSize?: string;
+}) {
+  if (!SHIP_API_BASE) return;
+  const res = await fetch(`${SHIP_API_BASE}/v1/waitlist`, {
     method: "POST",
-    mode: "no-cors",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify({
+      email: payload.email.trim(),
+      ...(payload.company?.trim()
+        ? { company: payload.company.trim() }
+        : {}),
+      ...(payload.teamSize?.trim()
+        ? { teamSize: payload.teamSize.trim() }
+        : {}),
+    }),
   });
+  if (res.ok || res.status === 409) return;
+  throw new Error(`waitlist api: ${res.status}`);
 }
 
 export default function WaitlistForm() {
@@ -29,14 +43,9 @@ export default function WaitlistForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await submitToSheet({
-        timestamp: new Date().toISOString(),
-        email,
-        company: "",
-        team_size: "",
-      });
+      await submitToShipApi({ email });
     } catch {
-      // fail silently -- still capture locally
+      // fail silently
     }
     setLoading(false);
     setPhase("qualify");
@@ -46,11 +55,10 @@ export default function WaitlistForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await submitToSheet({
-        timestamp: new Date().toISOString(),
+      await submitToShipApi({
         email,
-        company,
-        team_size: teamSize,
+        company: company || undefined,
+        teamSize: teamSize || undefined,
       });
     } catch {
       // fail silently

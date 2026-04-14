@@ -29,8 +29,9 @@ export default function PrivacyPolicy() {
             >
               shipplatform.ai
             </a>
-            . We are a United Kingdom-based company providing AI-native trading
-            platform engineering services.
+            . We are SHIP Platform Inc., a Delaware corporation headquartered in
+            the United States, providing AI-native trading platform engineering
+            services.
           </p>
         </section>
 
@@ -46,7 +47,7 @@ export default function PrivacyPolicy() {
             </li>
             <li>
               <strong className="text-ship-gray-300">Analytics data:</strong>{" "}
-              anonymised usage data including pages visited, scroll depth, and
+              anonymized usage data including pages visited, scroll depth, and
               referral source, collected via PostHog
             </li>
             <li>
@@ -72,7 +73,7 @@ export default function PrivacyPolicy() {
               To send you updates about SHIP&apos;s availability (you can
               unsubscribe at any time)
             </li>
-            <li>To improve our website and understand visitor behaviour</li>
+            <li>To improve our website and understand visitor behavior</li>
           </ul>
         </section>
 
@@ -83,12 +84,12 @@ export default function PrivacyPolicy() {
           <p className="mt-2">Your data may be processed by:</p>
           <ul className="mt-3 list-inside list-disc space-y-1 text-ship-gray-400">
             <li>
-              <strong className="text-ship-gray-300">Google Sheets / Google Workspace:</strong>{" "}
-              for waitlist data storage
+              <strong className="text-ship-gray-300">SHIP platform (backend):</strong>{" "}
+              for waitlist signups and related account records
             </li>
             <li>
               <strong className="text-ship-gray-300">PostHog:</strong>{" "}
-              for anonymised website analytics
+              for anonymized website analytics
             </li>
             <li>
               <strong className="text-ship-gray-300">Vercel:</strong>{" "}
@@ -111,29 +112,33 @@ export default function PrivacyPolicy() {
           </h2>
           <p className="mt-2">
             We retain your waitlist and contact information for as long as
-            necessary to fulfil the purposes outlined above, or until you
-            request deletion. Analytics data is retained in anonymised form for
+            necessary to fulfill the purposes outlined above, or until you
+            request deletion. Analytics data is retained in anonymized form for
             up to 24 months.
           </p>
         </section>
 
         <section>
           <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
-            6. Your Rights (UK GDPR)
+            6. Your Privacy Rights
           </h2>
           <p className="mt-2">
-            Under the UK General Data Protection Regulation, you have the right
-            to:
+            Depending on where you live, you may have rights regarding your
+            personal information. For example, if you are a resident of
+            California or certain other U.S. states, you may have the right to
+            access, correct, delete, or opt out of certain processing of personal
+            information, subject to applicable law.
           </p>
-          <ul className="mt-3 list-inside list-disc space-y-1 text-ship-gray-400">
-            <li>Access the personal data we hold about you</li>
-            <li>Request correction of inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Object to processing of your data</li>
-            <li>Request data portability</li>
-          </ul>
-          <p className="mt-3">
-            To exercise any of these rights, contact us at{" "}
+          <p className="mt-2">
+            If you are in the European Economic Area, United Kingdom, or
+            Switzerland, applicable law (including the GDPR or UK GDPR) may
+            grant you additional rights such as access, rectification, erasure,
+            restriction, objection, and data portability.
+          </p>
+          <p className="mt-2">
+            In all cases, you may contact us to exercise rights that apply to
+            you. We will respond in line with applicable law. To exercise any of
+            these rights, contact us at{" "}
             <a
               href="mailto:privacy@shipplatform.ai"
               className="text-ship-accent underline"
@@ -150,7 +155,7 @@ export default function PrivacyPolicy() {
           </h2>
           <p className="mt-2">
             Our website uses essential cookies for functionality and analytics
-            cookies (PostHog) to understand visitor behaviour. No third-party
+            cookies (PostHog) to understand visitor behavior. No third-party
             advertising cookies are used. You can disable cookies in your browser
             settings at any time.
           </p>

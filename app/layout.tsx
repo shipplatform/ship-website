@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://shipplatform.ai",
     siteName: "SHIP",
     type: "website",
-    locale: "en_GB",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

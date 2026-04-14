@@ -29,8 +29,9 @@ export default function Terms() {
               shipplatform.ai
             </a>{" "}
             (&ldquo;the Site&rdquo;), you agree to be bound by these Terms of
-            Service (&ldquo;Terms&rdquo;). If you do not agree, please do not
-            use the Site.
+            Service (&ldquo;Terms&rdquo;) with SHIP Platform Inc., a Delaware
+            corporation based in the United States. If you do not agree, please
+            do not use the Site.
           </p>
         </section>
 
@@ -124,8 +125,11 @@ export default function Terms() {
           </h2>
           <p className="mt-2">
             These Terms are governed by and construed in accordance with the
-            laws of England and Wales. Any disputes shall be subject to the
-            exclusive jurisdiction of the courts of England and Wales.
+            laws of the State of Delaware and applicable federal law of the
+            United States, without regard to conflict-of-law principles. Any
+            disputes arising under or relating to these Terms or the Site shall
+            be brought exclusively in the state or federal courts located in
+            Delaware, and you consent to personal jurisdiction there.
           </p>
         </section>
 

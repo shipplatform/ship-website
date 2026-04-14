@@ -3,7 +3,12 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "SHIP",
+    legalName: "SHIP Platform Inc.",
     url: "https://shipplatform.ai",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "US",
+    },
     description:
       "Top-down engineering intelligence: map company initiatives to commits, tickets, docs, and chat — daily briefs and drift detection without bottom-up vanity metrics.",
     foundingDate: "2026",

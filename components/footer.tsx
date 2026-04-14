@@ -24,6 +24,14 @@ export default function Footer() {
           >
             LinkedIn
           </a>
+          <a
+            href="https://www.youtube.com/@shipplatform"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-ship-gray-300"
+          >
+            YouTube
+          </a>
         </div>
 
         <p className="text-xs text-ship-gray-600">
