@@ -1,8 +1,13 @@
 const ROLES = [
   {
-    title: "Initiatives & context",
-    desc: "Structured goals, success criteria, and risk — the judgement leaders already hold, written so systems can reason over it.",
-    mono: "IC",
+    title: "Initiatives",
+    desc: "Structured goals, owners, and success criteria — the top-down lens every artefact is judged against.",
+    mono: "IN",
+  },
+  {
+    title: "Context",
+    desc: "Judgement, constraints, and organisational knowledge your team already holds — written so SHIP can reason over it faithfully.",
+    mono: "CT",
   },
   {
     title: "Connectors",

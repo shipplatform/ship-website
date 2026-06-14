@@ -18,10 +18,10 @@ export default function MobileCtaBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex gap-2 border-t border-ship-gray-800 bg-ship-black/95 px-4 py-3 backdrop-blur-lg md:hidden">
       <a
-        href="#waitlist"
+        href="#design-partners"
         className="flex h-11 flex-1 items-center justify-center rounded-sm bg-ship-accent text-sm font-semibold text-white"
       >
-        Join Waitlist
+        Apply as design partner
       </a>
       <a
         href={CAL_URL}

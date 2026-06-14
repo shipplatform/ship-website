@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const DEPLOY_LINES = [
-  { module: "Company initiatives", delay: 0 },
-  { module: "Issues & roadmaps", delay: 1800 },
-  { module: "Pull requests & commits", delay: 3600 },
-  { module: "Docs & specs", delay: 5400 },
-  { module: "Slack & chat", delay: 7200 },
-  { module: "Morning brief", delay: 9000 },
+  { module: "Company initiatives", delay: 0, status: "linked" },
+  { module: "Issues & roadmaps", delay: 1800, status: "linked" },
+  { module: "Pull requests & commits", delay: 3600, status: "linked" },
+  { module: "Docs & specs", delay: 5400, status: "linked" },
+  { module: "Slack & chat", delay: 7200, status: "linked" },
+  { module: "Morning brief", delay: 9000, status: "delivered" },
 ];
 
 function TerminalAnimation() {
@@ -69,7 +69,9 @@ function TerminalAnimation() {
             <span className="text-ship-gray-400">
               {DEPLOY_LINES[lineIdx].module.toLowerCase()}
             </span>
-            <span className="text-ship-green">linked</span>
+            <span className="text-ship-green">
+              {DEPLOY_LINES[lineIdx].status}
+            </span>
           </div>
         ))}
         {typingIndex < DEPLOY_LINES.length && (
@@ -125,10 +127,10 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="#waitlist"
+            href="#design-partners"
             className="inline-flex h-14 items-center justify-center rounded-sm bg-ship-accent px-8 text-base font-semibold text-white transition-colors hover:bg-ship-accent-hover"
           >
-            Join the Waitlist
+            Apply as design partner
           </a>
           <a
             href="#how-it-works"

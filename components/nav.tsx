@@ -60,10 +60,10 @@ export default function Nav() {
               Book a Call
             </a>
             <a
-              href="#waitlist"
+              href="#design-partners"
               className="inline-flex h-9 items-center rounded-sm bg-ship-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-ship-accent-hover"
             >
-              Join Waitlist
+              Apply as design partner
             </a>
           </div>
 
@@ -123,11 +123,11 @@ export default function Nav() {
                 Book a Call
               </a>
               <a
-                href="#waitlist"
+                href="#design-partners"
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex h-12 items-center justify-center rounded-sm bg-ship-accent text-base font-semibold text-white transition-colors hover:bg-ship-accent-hover"
               >
-                Join Waitlist
+                Apply as design partner
               </a>
             </div>
           </motion.div>
