@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="border-t border-ship-gray-800 px-6 py-12">
@@ -13,15 +15,15 @@ export default function Footer() {
           <a href="#pricing" className="transition-colors hover:text-ship-gray-300">
             Pricing
           </a>
-          <a href="/security" className="transition-colors hover:text-ship-gray-300">
+          <Link href="/security" className="transition-colors hover:text-ship-gray-300">
             Security
-          </a>
-          <a href="/privacy" className="transition-colors hover:text-ship-gray-300">
+          </Link>
+          <Link href="/privacy" className="transition-colors hover:text-ship-gray-300">
             Privacy Policy
-          </a>
-          <a href="/terms" className="transition-colors hover:text-ship-gray-300">
+          </Link>
+          <Link href="/terms" className="transition-colors hover:text-ship-gray-300">
             Terms
-          </a>
+          </Link>
           <a
             href="https://www.linkedin.com/company/shipplatform/"
             target="_blank"
@@ -40,7 +42,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className="text-xs text-ship-gray-600">
+        <p className="text-xs text-ship-gray-500">
           &copy; {new Date().getFullYear()} SHIP Platform. All rights reserved.
         </p>
       </div>

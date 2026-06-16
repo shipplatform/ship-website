@@ -24,8 +24,6 @@ function TerminalAnimation() {
     const fullText = `mapping ${line.module.toLowerCase()}`;
     let charIdx = 0;
 
-    setTypedText("");
-
     const typeInterval = setInterval(() => {
       charIdx++;
       setTypedText(fullText.slice(0, charIdx));

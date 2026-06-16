@@ -156,7 +156,7 @@ export default function Numbers() {
               </p>
               <div className="mt-2 flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs text-ship-gray-600">Bottom-up</p>
+                  <p className="text-xs text-ship-gray-500">Bottom-up</p>
                   <p className="text-sm text-ship-gray-400">
                     {row.traditional}
                   </p>

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "next build && rm -rf docs && cp -r out docs && cp CNAME docs/CNAME && touch docs/.nojekyll",
     "start": "next start",
     "lint": "eslint"
   },

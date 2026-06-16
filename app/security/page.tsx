@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Security — SHIP",
@@ -157,12 +158,12 @@ export default function SecurityPage() {
       </div>
 
       <div className="mt-16 border-t border-ship-gray-800 pt-8">
-        <a
+        <Link
           href="/"
           className="text-sm text-ship-gray-500 transition-colors hover:text-ship-white"
         >
           &larr; Back to home
-        </a>
+        </Link>
       </div>
     </main>
   );

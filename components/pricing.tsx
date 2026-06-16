@@ -142,7 +142,7 @@ export default function Pricing() {
             </span>
           ))}
         </div>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-xs text-ship-gray-600">
+        <p className="mx-auto mt-4 max-w-2xl text-center text-xs text-ship-gray-500">
           Built by engineers from Deutsche Bank, Revolut, Vega, and Capital.com —
           where “trust me” was never an acceptable answer.
         </p>
