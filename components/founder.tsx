@@ -5,23 +5,28 @@ import { motion } from "framer-motion";
 const CAREER = [
   {
     company: "Deutsche Bank",
-    role: "Market making, quantitative engineering, FX derivatives risk",
+    url: "https://www.db.com/",
+    role: "Engineering Manager on the algorithmic trading desk — FX and fixed-income derivatives risk inside a global, heavily regulated bank",
   },
   {
     company: "Revolut",
-    role: "FX spot trading infrastructure — millions of daily trades, 100k+ concurrent users",
+    url: "https://www.revolut.com",
+    role: "Head of Trading Platform — market making, risk, market data and brokerage across FX, crypto, equities and bonds at consumer scale",
   },
   {
     company: "Vega",
-    role: "CTO — built alternative investment platform end-to-end, zero to Series A",
+    url: "https://www.vega-alts.com/",
+    role: "CTO — built the private-markets platform 0→Series A with a 50-person team; the platform now runs $300B+ in alternative assets, with Apollo as anchor client",
   },
   {
     company: "Nevis",
-    role: "AI-powered wealth management platform",
+    url: "https://www.neviswealth.com/",
+    role: "CTO — AI-driven wealth-management platform, seed through Series A",
   },
   {
     company: "Capital.com",
-    role: "VP Trading Platform — leading 60+ engineers across CFD execution, pricing, and risk",
+    url: "https://capital.com",
+    role: "VP, Product & Engineering — leads the 77+ people trading platform, shipping regulated products across multiple jurisdictions",
   },
 ];
 
@@ -40,6 +45,14 @@ export default function Founder() {
             Built by someone who&apos;s been
             <br /> on your side of the table
           </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ship-gray-400">
+            SHIP comes from years leading engineering in the most regulated,
+            highest-stakes corners of finance — market making, derivatives risk,
+            brokerage and trading platforms across multiple asset classes and
+            jurisdictions. The problem it solves was learned at that scale: how
+            quietly real work drifts from intent once the stakes and the
+            headcount get large.
+          </p>
         </motion.div>
 
         <motion.div
@@ -59,9 +72,14 @@ export default function Founder() {
                 transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
                 className="flex flex-col gap-1 rounded-lg border border-ship-gray-800 bg-ship-gray-900/30 px-5 py-4 sm:flex-row sm:items-center sm:gap-4"
               >
-                <span className="shrink-0 font-heading text-sm font-semibold uppercase tracking-wider text-ship-accent">
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 font-heading text-sm font-semibold uppercase tracking-wider text-ship-accent transition-colors hover:text-ship-accent-hover hover:underline"
+                >
                   {c.company}
-                </span>
+                </a>
                 <span className="text-sm text-ship-gray-400">{c.role}</span>
               </motion.div>
             ))}

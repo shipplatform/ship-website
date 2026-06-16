@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
         Privacy Policy
       </h1>
       <p className="mt-4 text-sm text-ship-gray-500">
-        Last updated: 8 March 2026
+        Last updated: 16 June 2026
       </p>
 
       <div className="mt-10 space-y-8 text-base leading-relaxed text-ship-gray-300">
@@ -30,8 +30,13 @@ export default function PrivacyPolicy() {
               shipplatform.ai
             </a>
             . We are SHIP Platform Inc., a Delaware corporation headquartered in
-            the United States, providing AI-native trading platform engineering
-            services.
+            the United States. SHIP provides an AI-native engineering
+            intelligence platform — a chief-of-staff layer that helps
+            engineering leaders see how their teams&apos; work maps to company
+            goals. This policy explains how we handle personal data collected
+            through this website; personal data that a customer organization
+            connects to the SHIP platform is described in &ldquo;Customer
+            Platform Data&rdquo; below.
           </p>
         </section>
 
@@ -108,7 +113,30 @@ export default function PrivacyPolicy() {
 
         <section>
           <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
-            5. Data Retention
+            5. Customer Platform Data
+          </h2>
+          <p className="mt-2">
+            When an organization uses the SHIP platform as a customer or pilot
+            participant, SHIP connects — with that organization&apos;s
+            authorization — to tools the team already uses (for example GitHub,
+            GitLab, Jira, Confluence, Slack, Linear, Notion, and Gmail) to
+            produce briefings, drift signals, and 1:1 preparation. That workspace
+            data, which may include personal data about the organization&apos;s
+            team members, is processed on the organization&apos;s behalf and is
+            governed by the services agreement and any data processing addendum
+            with that organization — not by this website policy. Connectors use
+            least-privilege and, where the vendor supports it, read-only access;
+            see our{" "}
+            <a href="/security" className="text-ship-accent underline">
+              Security overview
+            </a>{" "}
+            for detail.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
+            6. Data Retention
           </h2>
           <p className="mt-2">
             We retain your waitlist and contact information for as long as
@@ -120,7 +148,7 @@ export default function PrivacyPolicy() {
 
         <section>
           <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
-            6. Your Privacy Rights
+            7. Your Privacy Rights
           </h2>
           <p className="mt-2">
             Depending on where you live, you may have rights regarding your
@@ -151,7 +179,7 @@ export default function PrivacyPolicy() {
 
         <section>
           <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
-            7. Cookies
+            8. Cookies
           </h2>
           <p className="mt-2">
             Our website uses essential cookies for functionality and analytics
@@ -163,7 +191,7 @@ export default function PrivacyPolicy() {
 
         <section>
           <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
-            8. Changes to This Policy
+            9. Changes to This Policy
           </h2>
           <p className="mt-2">
             We may update this privacy policy from time to time. Changes will be
@@ -173,7 +201,7 @@ export default function PrivacyPolicy() {
 
         <section>
           <h2 className="font-heading text-xl font-semibold uppercase tracking-tight text-ship-white">
-            9. Contact
+            10. Contact
           </h2>
           <p className="mt-2">
             For questions about this privacy policy or your data, email{" "}

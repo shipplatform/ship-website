@@ -7,8 +7,8 @@ const CAL_URL = "https://cal.com/shipplatform/discovery";
 const TIERS = [
   {
     name: "Startup",
-    price: "from $2,500",
-    cadence: "/mo",
+    price: "By application",
+    cadence: "",
     blurb: "For scale-up engineering orgs.",
     features: [
       "Morning brief + drift signal",

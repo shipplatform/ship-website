@@ -12,7 +12,7 @@ export default function Terms() {
         Terms of Service
       </h1>
       <p className="mt-4 text-sm text-ship-gray-500">
-        Last updated: 8 March 2026
+        Last updated: 16 June 2026
       </p>
 
       <div className="mt-10 space-y-8 text-base leading-relaxed text-ship-gray-300">
@@ -40,8 +40,11 @@ export default function Terms() {
             2. Description of Service
           </h2>
           <p className="mt-2">
-            SHIP provides AI-native trading platform engineering services. The
-            Site serves as a marketing and information resource about our
+            SHIP provides an AI-native engineering intelligence platform — a
+            chief-of-staff layer that helps engineering leaders see how their
+            teams&apos; work maps to company goals, through briefings, drift
+            signals, and 1:1 preparation grounded in the tools teams already use.
+            The Site serves as a marketing and information resource about our
             services, and provides a waitlist signup and discovery call booking
             functionality.
           </p>

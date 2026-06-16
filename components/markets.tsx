@@ -10,6 +10,7 @@ const LIVE_TOOLS = [
   "Slack",
   "Linear",
   "Notion",
+  "Gmail",
 ];
 
 const COMING_SOON_TOOLS = [

@@ -128,7 +128,7 @@ export default function WaitlistForm() {
           <h2 className="font-heading text-4xl font-bold uppercase leading-tight tracking-tight md:text-5xl lg:text-6xl">
             Become a
             <br />
-            founding design partner
+            design partner
           </h2>
           <p className="mt-4 text-lg text-ship-gray-400">
             SHIP is in private pilot — limited slots for engineering leaders who

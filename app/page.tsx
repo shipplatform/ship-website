@@ -7,6 +7,7 @@ import Solution from "@/components/solution";
 import HowItWorks from "@/components/how-it-works";
 import Markets from "@/components/markets";
 import Numbers from "@/components/numbers";
+import DriftCalculator from "@/components/drift-calculator";
 import Pricing from "@/components/pricing";
 import Founder from "@/components/founder";
 import BookCall from "@/components/book-call";
@@ -27,6 +28,7 @@ export default function Home() {
         <HowItWorks />
         <Markets />
         <Numbers />
+        <DriftCalculator />
         <Pricing />
         <Founder />
         <BookCall />
