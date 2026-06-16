@@ -1,0 +1,45 @@
+---
+import { CAPABILITIES } from "../data";
+---
+
+<section id="capabilities" class="px-6 py-24 lg:py-32">
+  <div class="mx-auto max-w-6xl">
+    <div class="text-center">
+      <h2
+        class="font-heading text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Meet your Chief of Staff
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-ship-gray-400">
+        Everything a great chief of staff does — briefs you, answers questions,
+        preps your 1:1s, catches drift — grounded in the work your team already
+        produces.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+      {
+        CAPABILITIES.map((cap) => (
+          <div class="rounded-lg border border-ship-gray-800 bg-ship-gray-900/30 p-6">
+            <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-sm bg-ship-accent/10 font-mono text-sm font-bold text-ship-accent">
+              {cap.mono}
+            </div>
+            <h3 class="font-heading text-lg font-semibold uppercase tracking-tight">
+              {cap.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-ship-gray-400">
+              {cap.desc}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p
+      class="mx-auto mt-12 max-w-3xl text-center text-lg leading-relaxed text-ship-gray-400"
+    >
+      Not another dashboard to check. An intelligence layer that starts from your
+      goals — then holds the work underneath accountable to them.
+    </p>
+  </div>
+</section>

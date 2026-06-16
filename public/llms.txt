@@ -1,0 +1,29 @@
+# SHIP
+
+> The Chief of Staff for engineering leadership. SHIP starts from your company
+> goals and reads the work your teams already produce — code, tickets, docs, chat
+> — then briefs you, answers any question in chat or your IDE, preps your 1:1s,
+> and catches drift early.
+
+SHIP is top-down engineering intelligence: goals first, tasks second. It reads
+the artefact trail teams already produce and classifies it against leadership
+intent, surfacing alignment and drift instead of activity vanity metrics.
+Operated by SHIP Platform Inc. (Delaware, US). Currently in private pilot.
+
+## Product
+
+- [Capabilities](https://shipplatform.ai/#capabilities): Brief (decision-ready morning narrative), Ask (conversational answers over your org, in app/Slack/Claude/Cursor), Prep (1:1 preparation), Catch drift (early signal when execution diverges from funded initiatives).
+- [How it works](https://shipplatform.ai/#how-it-works): Encode goals → Connect tools via read-only OAuth → Brief.
+- [Integrations](https://shipplatform.ai/#integrations): GitHub, GitLab, Jira, Confluence, Slack, Linear, Notion, Gmail. Coming soon: Google Meet, Google Drive, Zoom.
+- [Pricing](https://shipplatform.ai/#pricing): Startup (by application) and Enterprise (custom). Design partners get founding-partner pricing.
+
+## Legal
+
+- [Security](https://shipplatform.ai/security): Architecture, authentication, encryption, integrations, audit logging.
+- [Privacy Policy](https://shipplatform.ai/privacy)
+- [Terms of Service](https://shipplatform.ai/terms)
+
+## Contact
+
+- Discovery call: https://cal.com/shipplatform/discovery
+- Email: hello@shipplatform.ai

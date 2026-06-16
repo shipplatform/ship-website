@@ -1,0 +1,97 @@
+---
+import { PRICING_TIERS, PRICING_TRUST } from "../data";
+---
+
+<section id="pricing" class="px-6 py-24 lg:py-32">
+  <div class="mx-auto max-w-5xl">
+    <div class="text-center">
+      <h2
+        class="font-heading text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Senior pricing. No spreadsheet.
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-ship-gray-400">
+        One platform fee scoped to your org — not a per-seat calculator you have
+        to reverse-engineer.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:mt-16">
+      {
+        PRICING_TIERS.map((tier) => {
+          const isExternal = tier.href.startsWith("http");
+          return (
+            <div
+              class:list={[
+                "flex flex-col rounded-lg border p-8",
+                tier.highlighted
+                  ? "border-ship-accent/40 bg-ship-accent/5"
+                  : "border-ship-gray-800 bg-ship-gray-900/30",
+              ]}
+            >
+              <h3 class="font-heading text-2xl font-bold uppercase tracking-tight">
+                {tier.name}
+              </h3>
+              <p class="mt-1 text-sm text-ship-gray-400">{tier.blurb}</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="font-heading text-4xl font-bold text-ship-white">
+                  {tier.price}
+                </span>
+                <span class="text-ship-gray-500">{tier.cadence}</span>
+              </div>
+
+              <ul class="mt-8 flex-1 space-y-3">
+                {tier.features.map((f) => (
+                  <li class="flex gap-3 text-sm text-ship-gray-300">
+                    <span class="mt-0.5 shrink-0 text-ship-accent">✓</span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={tier.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                class:list={[
+                  "mt-8 inline-flex h-12 items-center justify-center rounded-sm px-8 text-base font-semibold transition-colors",
+                  tier.highlighted
+                    ? "bg-ship-accent-strong text-white hover:bg-ship-accent-strong-hover"
+                    : "border border-ship-gray-700 text-ship-gray-300 hover:border-ship-gray-500 hover:text-ship-white",
+                ]}
+              >
+                {tier.cta}
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <p class="mx-auto mt-8 max-w-2xl text-center text-sm text-ship-gray-500">
+      Building with us early?{" "}
+      <a
+        href="#design-partners"
+        class="text-ship-accent underline transition-colors hover:text-ship-accent-hover"
+        >Founding design partners</a
+      >{" "}
+      get pricing below our standard rate — by application.
+    </p>
+
+    <div
+      class="mt-10 flex flex-wrap items-center justify-center gap-3 border-t border-ship-gray-800 pt-8"
+    >
+      {
+        PRICING_TRUST.map((t) => (
+          <span class="rounded-full border border-ship-gray-700 px-4 py-1.5 text-xs text-ship-gray-400">
+            {t}
+          </span>
+        ))
+      }
+    </div>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-xs text-ship-gray-500">
+      Built by engineers from Deutsche Bank, Revolut, Vega, and Capital.com —
+      where “trust me” was never an acceptable answer.
+    </p>
+  </div>
+</section>

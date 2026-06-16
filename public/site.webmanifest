@@ -1,0 +1,18 @@
+{
+  "name": "SHIP — The Chief of Staff for engineering leadership",
+  "short_name": "SHIP",
+  "description": "SHIP starts from your company goals and reads the work your teams already produce — then briefs you, answers any question, preps your 1:1s, and catches drift early.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

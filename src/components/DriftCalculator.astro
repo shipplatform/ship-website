@@ -1,0 +1,167 @@
+---
+// Default values render server-side so the section is meaningful without JS.
+const fmt = (n: number) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(n);
+
+const engineers = 30;
+const salary = 120_000;
+const waste = 30;
+const annualWaste = engineers * salary * (waste / 100);
+---
+
+<section id="calculator" class="px-6 py-24 lg:py-32">
+  <div class="mx-auto max-w-4xl">
+    <div class="text-center">
+      <h2
+        class="font-heading text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Your guess is probably wrong
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-ship-gray-400">
+        When part of the team works on the wrong initiatives, velocity and DORA
+        scores still look fine — payroll does not. The arithmetic is simple, and
+        usually larger than the number in your head. Move the sliders and check.
+      </p>
+    </div>
+
+    <div
+      id="drift-calc"
+      class="mt-12 rounded-lg border border-ship-gray-800 bg-ship-gray-900/40 p-8 lg:p-10"
+    >
+      <div class="grid gap-8 md:grid-cols-3">
+        <div>
+          <label
+            for="drift-engineers"
+            class="mb-2 block text-sm font-medium text-ship-gray-300"
+            >Number of engineers</label
+          >
+          <input
+            id="drift-engineers"
+            type="range"
+            min="5"
+            max="200"
+            value={engineers}
+            class="w-full accent-ship-accent"
+          />
+          <div
+            data-out="engineers"
+            class="mt-1 text-center font-mono text-2xl font-bold text-ship-white"
+          >
+            {engineers}
+          </div>
+        </div>
+        <div>
+          <label
+            for="drift-salary"
+            class="mb-2 block text-sm font-medium text-ship-gray-300"
+            >Avg. annual salary (USD)</label
+          >
+          <input
+            id="drift-salary"
+            type="range"
+            min="60000"
+            max="250000"
+            step="5000"
+            value={salary}
+            class="w-full accent-ship-accent"
+          />
+          <div
+            data-out="salary"
+            class="mt-1 text-center font-mono text-2xl font-bold text-ship-white"
+          >
+            {fmt(salary)}
+          </div>
+        </div>
+        <div>
+          <label
+            for="drift-waste"
+            class="mb-2 block text-sm font-medium text-ship-gray-300"
+            >% capacity on wrong priorities</label
+          >
+          <input
+            id="drift-waste"
+            type="range"
+            min="5"
+            max="60"
+            value={waste}
+            class="w-full accent-ship-accent"
+          />
+          <div
+            data-out="waste"
+            class="mt-1 text-center font-mono text-2xl font-bold text-ship-white"
+          >
+            {waste}%
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 border-t border-ship-gray-800 pt-8 text-center">
+        <p class="text-sm uppercase tracking-widest text-ship-gray-500">
+          Estimated annual cost of misalignment (illustrative)
+        </p>
+        <p
+          data-out="total"
+          class="mt-2 font-heading text-5xl font-bold text-ship-white md:text-6xl"
+        >
+          {fmt(annualWaste)}
+        </p>
+        <p
+          data-out="formula"
+          class="mx-auto mt-4 max-w-xl font-mono text-xs leading-relaxed text-ship-gray-500"
+        >
+          {engineers} engineers × {fmt(salary)} avg salary × {waste}% on the
+          wrong priorities
+        </p>
+      </div>
+
+      <p
+        class="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-ship-gray-400"
+      >
+        This is a back-of-the-envelope figure, not a quote — your real number
+        depends on your team and your initiatives. But if even a fraction of it
+        is real, the cost of seeing it sooner is small by comparison.{" "}
+        <a
+          href="#how-it-works"
+          class="text-ship-accent underline transition-colors hover:text-ship-accent-hover"
+          >See how SHIP surfaces it</a
+        >.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.getElementById("drift-calc");
+  if (root) {
+    const fmt = (n: number) =>
+      new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      }).format(n);
+
+    const eng = root.querySelector<HTMLInputElement>("#drift-engineers")!;
+    const sal = root.querySelector<HTMLInputElement>("#drift-salary")!;
+    const wst = root.querySelector<HTMLInputElement>("#drift-waste")!;
+    const out = (k: string) =>
+      root.querySelector<HTMLElement>(`[data-out="${k}"]`)!;
+
+    const update = () => {
+      const e = Number(eng.value);
+      const s = Number(sal.value);
+      const w = Number(wst.value);
+      out("engineers").textContent = String(e);
+      out("salary").textContent = fmt(s);
+      out("waste").textContent = `${w}%`;
+      out("total").textContent = fmt(e * s * (w / 100));
+      out("formula").textContent =
+        `${e} engineers × ${fmt(s)} avg salary × ${w}% on the wrong priorities`;
+    };
+
+    [eng, sal, wst].forEach((el) => el.addEventListener("input", update));
+  }
+</script>

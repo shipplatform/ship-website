@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shipplatform.ai/sitemap-index.xml

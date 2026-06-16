@@ -1,0 +1,33 @@
+---
+import { CAL_URL } from "../consts";
+---
+
+<div
+  id="mobile-cta"
+  hidden
+  class="fixed inset-x-0 bottom-0 z-50 flex gap-2 border-t border-ship-gray-800 bg-ship-black/95 px-4 py-3 backdrop-blur-lg md:hidden"
+>
+  <a
+    href="#design-partners"
+    class="flex h-11 flex-1 items-center justify-center rounded-sm bg-ship-accent-strong text-sm font-semibold text-white"
+    >Apply as design partner</a
+  >
+  <a
+    href={CAL_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex h-11 flex-1 items-center justify-center rounded-sm border border-ship-gray-700 text-sm font-medium text-ship-gray-300"
+    >Book a Call</a
+  >
+</div>
+
+<script>
+  const bar = document.getElementById("mobile-cta");
+  if (bar) {
+    const onScroll = () => {
+      bar.hidden = window.scrollY <= window.innerHeight * 0.6;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+</script>

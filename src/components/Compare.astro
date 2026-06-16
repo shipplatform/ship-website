@@ -1,0 +1,94 @@
+---
+import { PERSONA_LINES, COMPARISON } from "../data";
+---
+
+<section class="px-6 py-24 lg:py-32">
+  <div class="mx-auto max-w-6xl">
+    <div class="text-center">
+      <h2
+        class="font-heading text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Same data. Different question.
+      </h2>
+    </div>
+
+    <div
+      class="mt-12 rounded-lg border border-ship-accent/20 bg-ship-accent/5 p-6 text-left md:p-8 lg:mt-16"
+    >
+      <div
+        class="mx-auto max-w-4xl space-y-4 text-base leading-relaxed text-ship-gray-300"
+      >
+        {
+          PERSONA_LINES.map((persona) => (
+            <p>
+              <span class="font-semibold text-ship-white">{persona.role} sees:</span>{" "}
+              {persona.line}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Desktop table */}
+    <div class="mt-12 hidden md:block lg:mt-16">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-ship-gray-800">
+            <th scope="col" class="pb-4 pr-4 font-medium text-ship-gray-500">
+              <span class="sr-only">Dimension</span>
+            </th>
+            <th
+              scope="col"
+              class="pb-4 pr-4 font-heading text-base font-semibold uppercase tracking-tight text-ship-gray-400"
+              >Bottom-up analytics</th
+            >
+            <th
+              scope="col"
+              class="pb-4 font-heading text-base font-semibold uppercase tracking-tight text-ship-accent"
+              >SHIP (top-down)</th
+            >
+          </tr>
+        </thead>
+        <tbody>
+          {
+            COMPARISON.map((row) => (
+              <tr class="border-b border-ship-gray-800/50">
+                <th
+                  scope="row"
+                  class="py-4 pr-4 text-left font-medium text-ship-gray-300"
+                >
+                  {row.metric}
+                </th>
+                <td class="py-4 pr-4 text-ship-gray-500">{row.traditional}</td>
+                <td class="py-4 font-medium text-ship-white">{row.ship}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    {/* Mobile stacked cards */}
+    <div class="mt-12 space-y-3 md:hidden">
+      {
+        COMPARISON.map((row) => (
+          <div class="rounded-lg border border-ship-gray-800 bg-ship-gray-900/30 p-4">
+            <p class="text-xs font-medium uppercase tracking-wider text-ship-gray-500">
+              {row.metric}
+            </p>
+            <div class="mt-2 flex items-center justify-between gap-4">
+              <div>
+                <p class="text-xs text-ship-gray-500">Bottom-up</p>
+                <p class="text-sm text-ship-gray-400">{row.traditional}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-xs text-ship-accent">SHIP</p>
+                <p class="text-sm font-semibold text-ship-white">{row.ship}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

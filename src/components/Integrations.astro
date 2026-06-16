@@ -1,0 +1,84 @@
+---
+import { INTEGRATIONS_LIVE, INTEGRATIONS_COMING, SIGNALS } from "../data";
+---
+
+<section id="integrations" class="px-6 py-24 lg:py-32">
+  <div class="mx-auto max-w-6xl">
+    <div class="text-center">
+      <h2
+        class="font-heading text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Your stack. Your artefact trail.
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-ship-gray-400">
+        SHIP connects to the systems teams already use — read-only OAuth, no
+        rip-and-replace, no forcing everyone into a new UI for day-to-day work.
+      </p>
+    </div>
+
+    <p
+      class="mt-10 text-center text-sm uppercase tracking-widest text-ship-gray-500"
+    >
+      Available today
+    </p>
+    <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      {
+        INTEGRATIONS_LIVE.map((name) => (
+          <div class="rounded-lg border border-ship-gray-800 bg-ship-gray-900/30 px-4 py-5 text-center">
+            <span class="font-heading text-base font-semibold uppercase tracking-tight">
+              {name}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+
+    <p
+      class="mt-12 text-center text-sm uppercase tracking-widest text-ship-gray-500"
+    >
+      Coming soon
+    </p>
+    <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+      {
+        INTEGRATIONS_COMING.map((tool) => (
+          <div class="relative rounded-lg border border-dashed border-ship-gray-800/60 bg-ship-gray-900/20 px-4 py-5 text-center">
+            <span class="absolute right-3 top-3 rounded-full border border-ship-gray-700 px-2 py-0.5 text-[10px] uppercase tracking-wide text-ship-gray-500">
+              Coming soon
+            </span>
+            <span class="font-heading text-base font-semibold uppercase tracking-tight text-ship-gray-300">
+              {tool.name}
+            </span>
+            <p class="mt-2 text-xs text-ship-gray-500">{tool.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10">
+      <p
+        class="mb-4 text-center text-sm uppercase tracking-widest text-ship-gray-500"
+      >
+        What we classify
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        {
+          SIGNALS.map((label) => (
+            <span class="rounded-full border border-ship-gray-700 px-4 py-1.5 text-sm text-ship-gray-400">
+              {label}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <p
+      class="mx-auto mt-10 max-w-3xl text-center text-lg leading-relaxed text-ship-gray-400"
+    >
+      Coming soon: meeting and shared-doc connectors to capture context that
+      never became a ticket — opt-in, read-only. Vertical specifics (e.g.
+      regulated finance) inform how we think about evidence and governance — the
+      product narrative stays horizontal: goals down to tasks, across the tools
+      you already run.
+    </p>
+  </div>
+</section>

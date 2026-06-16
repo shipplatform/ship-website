@@ -1,0 +1,103 @@
+---
+import "../styles/global.css";
+import oswaldWoff2 from "@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2?url";
+import { SITE, SITE_URL, KEYWORDS, POSTHOG_KEY } from "../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Path relative to site root, e.g. "/privacy". Defaults to current. */
+  path?: string;
+  robots?: string;
+  jsonLd?: Record<string, unknown>[];
+  ogType?: "website" | "article";
+}
+
+const {
+  title = SITE.title,
+  description = SITE.description,
+  path = Astro.url.pathname,
+  robots = "index, follow",
+  jsonLd = [],
+  ogType = "website",
+} = Astro.props;
+
+const canonical = new URL(path, SITE_URL).href;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={KEYWORDS.join(", ")} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Localization-ready: self-referencing hreflang (no canonicalizing translations to English later) -->
+    <link rel="alternate" hreflang="en" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <!-- Icons & manifest -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Preload the heading font: H1 is the LCP element and uses Oswald -->
+    <link
+      rel="preload"
+      href={oswaldWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Open Graph (no og:image by design — site has no hero/OG media) -->
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={SITE.ogTitle} />
+    <meta property="og:description" content={SITE.ogDescription} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={SITE.locale} />
+
+    <!-- Twitter (summary — no large image available) -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={SITE.ogTitle} />
+    <meta name="twitter:description" content={SITE.twitterDescription} />
+
+    {
+      jsonLd.map((schema) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(schema)}
+        />
+      ))
+    }
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <slot />
+
+    {
+      POSTHOG_KEY && (
+        <script is:inline define:vars={{ POSTHOG_KEY }}>
+          {`
+          (function () {
+            function load() {
+              !(function (t, e) { var o, n, p, r; e.__SV || ((window.posthog = e), (e._i = []), (e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && ((t = t[o[0]]), (e = o[1])), (t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }); } ((p = t.createElement("script")).type = "text/javascript"), (p.crossOrigin = "anonymous"), (p.async = !0), (p.src = s.api_host + "/static/array.js"), (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? (u = e[a] = []) : (a = "posthog"), u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e; }, u.people.toString = function () { return u.toString(1) + ".people (stub)"; }, o = "init capture register register_once register_for_session unregister opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing start_session_recording stop_session_recording session_recording_started loadToolbar get_property getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording getActiveMatchingSurveys getSurveys getNextSurveyStep".split(" "), n = 0; n < o.length; n++) g(u, o[n]); e._i.push([i, s, a]); }), (e.__SV = 1)); })(document, window.posthog || []);
+              window.posthog.init(POSTHOG_KEY, { api_host: "https://us.i.posthog.com", person_profiles: "identified_only" });
+            }
+            if ("requestIdleCallback" in window) { requestIdleCallback(load, { timeout: 4000 }); }
+            else { window.addEventListener("load", function () { setTimeout(load, 1200); }); }
+          })();
+          `}
+        </script>
+      )
+    }
+  </body>
+</html>

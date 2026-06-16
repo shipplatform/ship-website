@@ -1,0 +1,33 @@
+---
+import { PAIN_CARDS } from "../data";
+---
+
+<section id="problem" class="px-6 py-24 lg:py-32">
+  <div class="mx-auto max-w-6xl">
+    <div class="text-center md:text-left">
+      <h2
+        class="font-heading text-3xl font-bold uppercase leading-tight tracking-tight md:text-4xl lg:text-5xl"
+      >
+        Fast execution is easy to measure.<br class="hidden md:block" /> Correct
+        execution is not.
+      </h2>
+      <p class="mt-4 text-lg text-ship-gray-400 md:text-xl">
+        Most tooling optimises activity. SHIP starts from what leadership said
+        matters — then classifies real work against that intent.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3 lg:mt-16">
+      {
+        PAIN_CARDS.map((card) => (
+          <div class="rounded-lg border border-ship-gray-800 bg-ship-gray-900/40 p-8">
+            <h3 class="font-heading text-xl font-semibold uppercase tracking-tight">
+              {card.title}
+            </h3>
+            <p class="mt-3 leading-relaxed text-ship-gray-400">{card.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

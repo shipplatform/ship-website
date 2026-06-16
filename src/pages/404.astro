@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page not found — SHIP"
+  description="The page you are looking for could not be found."
+  path="/404"
+  robots="noindex, follow"
+>
+  <main
+    id="main"
+    class="flex min-h-screen flex-col items-center justify-center px-6 text-center"
+  >
+    <p class="font-mono text-sm uppercase tracking-widest text-ship-accent">404</p>
+    <h1
+      class="mt-4 font-heading text-4xl font-bold uppercase tracking-tight md:text-6xl"
+    >
+      Page not found
+    </h1>
+    <p class="mx-auto mt-4 max-w-md text-ship-gray-400">
+      The page you are looking for doesn&apos;t exist or has moved.
+    </p>
+    <a
+      href="/"
+      class="mt-8 inline-flex h-12 items-center justify-center rounded-sm bg-ship-accent-strong px-8 text-base font-semibold text-white transition-colors hover:bg-ship-accent-strong-hover"
+      >Back to home</a
+    >
+  </main>
+</BaseLayout>

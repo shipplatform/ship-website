@@ -1,0 +1,50 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { breadcrumbLd } from "../lib/jsonld";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  heading: string;
+  subhead?: string;
+}
+
+const { title, description, path, heading, subhead } = Astro.props;
+
+const jsonLd = [
+  breadcrumbLd([
+    { name: "Home", path: "/" },
+    { name: heading, path },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <main id="main" class="mx-auto max-w-3xl px-6 pb-24 pt-32">
+    <h1
+      class="font-heading text-4xl font-bold uppercase tracking-tight md:text-5xl"
+    >
+      {heading}
+    </h1>
+    {subhead && <p class="mt-4 text-sm text-ship-gray-500">{subhead}</p>}
+
+    <div class="mt-10 space-y-8 text-base leading-relaxed text-ship-gray-300">
+      <slot />
+    </div>
+
+    <div class="mt-16 border-t border-ship-gray-800 pt-8">
+      <a
+        href="/"
+        class="text-sm text-ship-gray-500 transition-colors hover:text-ship-white"
+        >&larr; Back to home</a
+      >
+    </div>
+  </main>
+</BaseLayout>

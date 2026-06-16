@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PilotBanner from "../components/PilotBanner.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Capabilities from "../components/Capabilities.astro";
+import Problem from "../components/Problem.astro";
+import Solution from "../components/Solution.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Integrations from "../components/Integrations.astro";
+import Compare from "../components/Compare.astro";
+import DriftCalculator from "../components/DriftCalculator.astro";
+import Pricing from "../components/Pricing.astro";
+import Founder from "../components/Founder.astro";
+import BookCall from "../components/BookCall.astro";
+import Waitlist from "../components/Waitlist.astro";
+import Footer from "../components/Footer.astro";
+import MobileCtaBar from "../components/MobileCtaBar.astro";
+import {
+  organizationLd,
+  websiteLd,
+  softwareApplicationLd,
+} from "../lib/jsonld";
+
+const jsonLd = [organizationLd(), websiteLd(), softwareApplicationLd()];
+---
+
+<BaseLayout path="/" jsonLd={jsonLd}>
+  <PilotBanner />
+  <Nav />
+  <main id="main">
+    <Hero />
+    <Capabilities />
+    <Problem />
+    <Solution />
+    <HowItWorks />
+    <Integrations />
+    <Compare />
+    <DriftCalculator />
+    <Pricing />
+    <Founder />
+    <BookCall />
+    <Waitlist />
+  </main>
+  <Footer />
+  <MobileCtaBar />
+</BaseLayout>
