@@ -22,14 +22,14 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "SHIP — Top-down engineering intelligence",
+  title: "SHIP — The Chief of Staff for engineering leadership",
   description:
-    "Map company goals to real engineering work. SHIP classifies commits, tickets, and docs against your initiatives — daily briefs and drift signal without DORA-for-DORA’s sake.",
+    "SHIP starts from your company goals and reads the work your teams already produce — code, tickets, docs, chat — then briefs you, answers any question in chat or your IDE, preps your 1:1s, and catches drift early.",
   metadataBase: new URL("https://shipplatform.ai"),
   openGraph: {
-    title: "SHIP — Top-down engineering intelligence",
+    title: "SHIP — The Chief of Staff for engineering leadership",
     description:
-      "From leadership intent to ground truth: initiative-first classification over your artefact trail — not bottom-up velocity charts.",
+      "They tell you how fast your team works. SHIP tells you whether your team is working on the right things — brief, chat, 1:1 prep, and drift, grounded in the artefact trail.",
     url: "https://shipplatform.ai",
     siteName: "SHIP",
     type: "website",
@@ -37,19 +37,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SHIP — Top-down engineering intelligence",
+    title: "SHIP — The Chief of Staff for engineering leadership",
     description:
-      "Goals first, tasks second. Daily briefs grounded in Git, Jira, Confluence, Slack, and more.",
+      "Briefs, chat, 1:1 prep and drift signal — grounded in Git, Jira, Confluence, Slack, Linear, and Notion. Ask in the app, in Slack, or inside Claude & Cursor.",
   },
   keywords: [
+    "engineering chief of staff",
     "engineering intelligence",
     "software alignment",
     "initiative tracking",
     "engineering management",
     "CTO tools",
-    "delivery visibility",
+    "1:1 prep",
     "drift detection",
     "GitHub Jira integration",
+    "MCP server",
   ],
 };
 

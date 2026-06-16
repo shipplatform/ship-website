@@ -2,12 +2,6 @@
 
 import { motion } from "framer-motion";
 
-const STATS = [
-  { value: "↓", label: "Less time reconciling standups with Git — one brief grounded in artefacts" },
-  { value: "↑", label: "Earlier signal when execution diverges from the initiatives you funded" },
-  { value: "→", label: "Same connectors as bottom-up tools — different question: right thing, not just fast thing" },
-];
-
 const PERSONA_LINES = [
   {
     role: "CEO",
@@ -83,26 +77,6 @@ export default function Numbers() {
             Same data. Different question.
           </h2>
         </motion.div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3 lg:mt-16">
-          {STATS.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="rounded-lg border border-ship-gray-800 bg-ship-gray-900/30 p-8 text-center"
-            >
-              <div className="font-heading text-5xl font-bold text-ship-accent md:text-6xl">
-                {stat.value}
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-ship-gray-400">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

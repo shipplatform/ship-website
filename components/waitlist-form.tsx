@@ -22,8 +22,8 @@ const DESIGN_PARTNER_BENEFITS = [
     body: "Initiative workflows, brief formats, and connector priorities reflect what works for your team first.",
   },
   {
-    title: "Founding-partner terms",
-    body: "Pricing locked for early design partners — terms we offer now don't come back later.",
+    title: "Founding-partner pricing",
+    body: "Pricing below our standard rate, locked while we build together — terms we offer now don't come back later.",
   },
   {
     title: "Peer cohort",
@@ -126,14 +126,15 @@ export default function WaitlistForm() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-heading text-4xl font-bold uppercase leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Apply to be a
+            Become a
             <br />
-            design partner
+            founding design partner
           </h2>
           <p className="mt-4 text-lg text-ship-gray-400">
-            SHIP is in private pilot — limited slots for teams who want top-down
-            engineering intelligence with direct working sessions. Goals to tasks,
-            briefs and drift — without another dashboard graveyard.
+            SHIP is in private pilot — limited slots for engineering leaders who
+            want a chief of staff for their org, with direct working sessions and
+            founding-partner pricing. Briefs, chat, 1:1 prep and drift — without
+            another dashboard graveyard.
           </p>
         </motion.div>
 

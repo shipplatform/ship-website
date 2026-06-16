@@ -108,21 +108,21 @@ export default function Hero() {
         className="mx-auto max-w-5xl text-center"
       >
         <h1 className="font-heading text-4xl font-bold uppercase leading-tight tracking-tight sm:text-5xl md:text-7xl lg:text-8xl">
-          Top-Down Engineering
+          The Chief of Staff for
           <br />
-          Intelligence
+          Engineering Leadership
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ship-gray-400 md:text-xl">
-          Start from company goals and initiatives — then see how commits, tickets,
-          docs, and messages actually map to that intent.{" "}
+          They tell you how fast your team works.{" "}
           <span className="text-ship-white">
-            Not &ldquo;are we busy?&rdquo; — are we doing what we agreed to do?
+            We tell you whether your team is working on the right things.
           </span>
         </p>
         <p className="mx-auto mt-3 max-w-xl text-base font-medium text-ship-gray-300">
-          The opposite of bottom-up dashboards: fewer DORA vanity charts, more
-          alignment from strategy to the task in front of each engineer.
+          SHIP starts from your company goals, reads the work your teams already
+          produce — code, tickets, docs, chat — then briefs you, answers any
+          question, and preps your 1:1s. Without chasing anyone.
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

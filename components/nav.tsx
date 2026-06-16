@@ -6,12 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 const CAL_URL = "https://cal.com/shipplatform/discovery";
 
 const NAV_LINKS = [
-  { label: "Problem", href: "#problem" },
-  { label: "Solution", href: "#solution" },
-  { label: "Integrations", href: "#integrations" },
+  { label: "Product", href: "#capabilities" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Intelligence", href: "#blueprints" },
-  { label: "Calculator", href: "#calculator" },
+  { label: "Integrations", href: "#integrations" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
 export default function Nav() {

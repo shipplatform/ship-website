@@ -10,6 +10,12 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center gap-6 text-sm text-ship-gray-500">
+          <a href="#pricing" className="transition-colors hover:text-ship-gray-300">
+            Pricing
+          </a>
+          <a href="/security" className="transition-colors hover:text-ship-gray-300">
+            Security
+          </a>
           <a href="/privacy" className="transition-colors hover:text-ship-gray-300">
             Privacy Policy
           </a>

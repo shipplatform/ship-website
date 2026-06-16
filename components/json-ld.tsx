@@ -10,13 +10,20 @@ export default function JsonLd() {
       addressCountry: "US",
     },
     description:
-      "Top-down engineering intelligence: map company initiatives to commits, tickets, docs, and chat — daily briefs and drift detection without bottom-up vanity metrics.",
+      "The Chief of Staff for engineering leadership: SHIP starts from company goals, reads the artefact trail (code, tickets, docs, chat), and delivers a morning brief, conversational answers in chat and your IDE, 1:1 prep, and early drift detection.",
     foundingDate: "2026",
-    sameAs: [],
+    sameAs: [
+      "https://www.linkedin.com/company/shipplatform/",
+      "https://www.youtube.com/@shipplatform",
+    ],
     knowsAbout: [
+      "Engineering chief of staff",
       "Engineering intelligence",
       "Software delivery alignment",
       "Initiative tracking",
+      "1:1 preparation",
+      "Drift detection",
+      "MCP server",
       "GitHub",
       "Jira",
       "Slack",

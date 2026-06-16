@@ -1,16 +1,13 @@
 import PilotBanner from "@/components/pilot-banner";
 import Nav from "@/components/nav";
 import Hero from "@/components/hero";
+import Capabilities from "@/components/capabilities";
 import Problem from "@/components/problem";
-import RebuildCurse from "@/components/rebuild-curse";
 import Solution from "@/components/solution";
-import VirtualTeam from "@/components/virtual-team";
-import Markets from "@/components/markets";
 import HowItWorks from "@/components/how-it-works";
-import Blueprints from "@/components/blueprints";
-import ProductionGrade from "@/components/production-grade";
+import Markets from "@/components/markets";
 import Numbers from "@/components/numbers";
-import DriftCalculator from "@/components/drift-calculator";
+import Pricing from "@/components/pricing";
 import Founder from "@/components/founder";
 import BookCall from "@/components/book-call";
 import WaitlistForm from "@/components/waitlist-form";
@@ -24,16 +21,13 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Capabilities />
         <Problem />
-        <RebuildCurse />
         <Solution />
-        <VirtualTeam />
-        <Markets />
         <HowItWorks />
-        <Blueprints />
-        <ProductionGrade />
+        <Markets />
         <Numbers />
-        <DriftCalculator />
+        <Pricing />
         <Founder />
         <BookCall />
         <WaitlistForm />
