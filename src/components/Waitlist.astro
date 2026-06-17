@@ -58,6 +58,10 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
     <p id="wl-email-note" class="mt-3 text-xs text-ship-gray-500">
       No credit card required. Private pilot. Limited spots.
     </p>
+    <p id="wl-email-error" hidden class="mt-3 text-sm text-ship-red" role="alert">
+      Something went wrong submitting your application. Please try again, or email{" "}
+      <a class="underline" href="mailto:hello@shipplatform.ai">hello@shipplatform.ai</a>.
+    </p>
 
     <noscript>
       <p class="mt-3 text-sm text-ship-gray-400">
@@ -130,6 +134,9 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
             >Skip</button
           >
         </div>
+        <p id="wl-qualify-error" hidden class="text-sm text-ship-red" role="alert">
+          Something went wrong saving those details. Please try again or click Skip.
+        </p>
       </form>
     </div>
 
@@ -184,6 +191,10 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
             >Join waitlist</button
           >
         </form>
+        <p id="wl-secondary-error" hidden class="mt-3 text-sm text-ship-red" role="alert">
+          Something went wrong. Please try again, or email{" "}
+          <a class="underline" href="mailto:hello@shipplatform.ai">hello@shipplatform.ai</a>.
+        </p>
       </div>
     </div>
 
@@ -230,6 +241,9 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
     const secondaryFormEl = secondaryForm?.querySelector("form");
     const secondaryEmail = $<HTMLInputElement>("wl-secondary-email");
     const secondaryDone = $("wl-secondary-done");
+    const emailError = $("wl-email-error");
+    const qualifyError = $("wl-qualify-error");
+    const secondaryError = $("wl-secondary-error");
 
     let applicantEmail = "";
 
@@ -237,15 +251,23 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
       if (btn) btn.disabled = on;
     };
 
+    const showError = (el: HTMLElement | null, on: boolean) => {
+      if (el) el.hidden = !on;
+    };
+
     emailForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = emailForm.querySelector("button");
       busy(btn, true);
+      showError(emailError, false);
       applicantEmail = emailInput?.value || "";
       try {
         await submitWaitlist({ email: applicantEmail });
       } catch {
-        /* fail silently — user still proceeds */
+        // Do not advance to the "Application received" state on a failed submit.
+        busy(btn, false);
+        showError(emailError, true);
+        return;
       }
       busy(btn, false);
       emailForm.hidden = true;
@@ -257,6 +279,7 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
       e.preventDefault();
       const btn = qualifyForm.querySelector('button[type="submit"]');
       busy(btn as HTMLButtonElement, true);
+      showError(qualifyError, false);
       const company = ($<HTMLInputElement>("wl-company")?.value || "").trim();
       const teamSize = $<HTMLSelectElement>("wl-team")?.value || "";
       const stack = $<HTMLSelectElement>("wl-stack")?.value || "";
@@ -269,7 +292,9 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
           teamSize: sizeWithIntent,
         });
       } catch {
-        /* fail silently */
+        busy(btn as HTMLButtonElement, false);
+        showError(qualifyError, true);
+        return;
       }
       busy(btn as HTMLButtonElement, false);
       finishPrimary();
@@ -292,10 +317,13 @@ import { DESIGN_PARTNER_BENEFITS, TEAM_SIZES, PRIMARY_STACKS } from "../data";
       e.preventDefault();
       const btn = secondaryFormEl.querySelector("button");
       busy(btn as HTMLButtonElement, true);
+      showError(secondaryError, false);
       try {
         await submitWaitlist({ email: secondaryEmail?.value || "" });
       } catch {
-        /* fail silently */
+        busy(btn as HTMLButtonElement, false);
+        showError(secondaryError, true);
+        return;
       }
       busy(btn as HTMLButtonElement, false);
       if (secondary) secondary.hidden = true;

@@ -1,5 +1,5 @@
 ---
-import { TRUST_COMPANIES } from "../consts";
+import { TRUST_COMPANIES, APP_LOGIN_URL } from "../consts";
 import { HERO_DEPLOY_LINES } from "../data";
 ---
 
@@ -42,6 +42,15 @@ import { HERO_DEPLOY_LINES } from "../data";
         >See How It Works</a
       >
     </div>
+
+    <p class="mt-4 text-sm text-ship-gray-500">
+      Already onboarded?{" "}
+      <a
+        href={APP_LOGIN_URL}
+        class="text-ship-gray-400 underline-offset-2 transition-colors hover:text-ship-white hover:underline"
+        >Log in</a
+      >
+    </p>
   </div>
 
   <!-- Decorative terminal: below the fold of the LCP, hidden on mobile, fixed height (no CLS) -->
@@ -83,8 +92,12 @@ import { HERO_DEPLOY_LINES } from "../data";
   const prefersReduced = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
+  // The terminal is `hidden lg:block` — never visible below 1024px. Skip the
+  // perpetual typing animation entirely on smaller screens so it doesn't run
+  // setInterval forever off-screen (wasted CPU/battery on mobile).
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
 
-  if (el && body) {
+  if (el && body && isDesktop) {
     const lines: string[] = JSON.parse(el.dataset.lines || "[]").map(
       (l: string) => l.toLowerCase(),
     );

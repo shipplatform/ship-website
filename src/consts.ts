@@ -35,6 +35,8 @@ export const KEYWORDS = [
 
 export const CAL_URL = "https://cal.com/shipplatform/discovery";
 
+export const APP_LOGIN_URL = "https://app.shipplatform.ai/login";
+
 export const SOCIALS = {
   linkedin: "https://www.linkedin.com/company/shipplatform/",
   youtube: "https://www.youtube.com/@shipplatform",

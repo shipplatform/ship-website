@@ -1,11 +1,11 @@
 ---
-import { NAV_LINKS, CAL_URL } from "../consts";
+import { NAV_LINKS, CAL_URL, APP_LOGIN_URL } from "../consts";
 ---
 
 <nav
   id="site-nav"
   data-scrolled="false"
-  class="fixed left-0 right-0 top-9 z-50 bg-transparent transition-all duration-300 data-[scrolled=true]:border-b data-[scrolled=true]:border-ship-gray-800 data-[scrolled=true]:bg-ship-black/80 data-[scrolled=true]:backdrop-blur-lg"
+  class="fixed left-0 right-0 top-[3.25rem] z-50 bg-transparent transition-all duration-300 data-[scrolled=true]:border-b data-[scrolled=true]:border-ship-gray-800 data-[scrolled=true]:bg-ship-black/80 data-[scrolled=true]:backdrop-blur-lg md:top-9"
 >
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
     <a
@@ -31,6 +31,11 @@ import { NAV_LINKS, CAL_URL } from "../consts";
         rel="noopener noreferrer"
         class="text-sm text-ship-gray-400 transition-colors hover:text-ship-white"
         >Book a Call</a
+      >
+      <a
+        href={APP_LOGIN_URL}
+        class="text-sm text-ship-gray-400 transition-colors hover:text-ship-white"
+        >Log in</a
       >
       <a
         href="#design-partners"
@@ -59,7 +64,7 @@ import { NAV_LINKS, CAL_URL } from "../consts";
 <div
   id="nav-mobile"
   hidden
-  class="fixed inset-x-0 top-[6.25rem] z-40 border-b border-ship-gray-800 bg-ship-black/95 px-6 pb-6 pt-4 backdrop-blur-lg md:hidden"
+  class="fixed inset-x-0 top-[7.25rem] z-40 border-b border-ship-gray-800 bg-ship-black/95 px-6 pb-6 pt-4 backdrop-blur-lg md:hidden"
 >
   <div class="flex flex-col gap-4">
     {
@@ -87,6 +92,12 @@ import { NAV_LINKS, CAL_URL } from "../consts";
       class="inline-flex h-12 items-center justify-center rounded-sm bg-ship-accent-strong text-base font-semibold text-white transition-colors hover:bg-ship-accent-strong-hover"
       >Apply as design partner</a
     >
+    <a
+      href={APP_LOGIN_URL}
+      data-nav-close
+      class="pt-1 text-center text-sm text-ship-gray-500 transition-colors hover:text-ship-white"
+      >Already onboarded? Log in</a
+    >
   </div>
 </div>
 
@@ -104,10 +115,28 @@ import { NAV_LINKS, CAL_URL } from "../consts";
   }
 
   if (toggle && mobile) {
+    const onOutsidePointer = (e: PointerEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (mobile.contains(target) || toggle.contains(target)) return;
+      setOpen(false);
+    };
+    const onKeydown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+
     const setOpen = (open: boolean) => {
       mobile.hidden = !open;
       toggle.setAttribute("aria-expanded", String(open));
+      if (open) {
+        document.addEventListener("pointerdown", onOutsidePointer);
+        document.addEventListener("keydown", onKeydown);
+      } else {
+        document.removeEventListener("pointerdown", onOutsidePointer);
+        document.removeEventListener("keydown", onKeydown);
+      }
     };
+
     toggle.addEventListener("click", () => {
       setOpen(mobile.hidden);
     });

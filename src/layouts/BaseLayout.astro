@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import oswaldWoff2 from "@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2?url";
+import interWoff2 from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import { SITE, SITE_URL, KEYWORDS, POSTHOG_KEY } from "../consts";
 
 interface Props {
@@ -52,6 +53,15 @@ const canonical = new URL(path, SITE_URL).href;
     <link
       rel="preload"
       href={oswaldWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <!-- Preload the body font (Inter): the bulk of FCP text, otherwise only
+         discovered after CSS parses, late in the critical chain. -->
+    <link
+      rel="preload"
+      href={interWoff2}
       as="font"
       type="font/woff2"
       crossorigin

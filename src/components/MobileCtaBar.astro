@@ -24,9 +24,16 @@ import { CAL_URL } from "../consts";
 <script>
   const bar = document.getElementById("mobile-cta");
   if (bar) {
-    const onScroll = () => {
-      bar.hidden = window.scrollY <= window.innerHeight * 0.6;
+    // Cache the viewport height so the scroll handler doesn't read layout
+    // (window.innerHeight) on every event — that read forces a reflow.
+    let threshold = window.innerHeight * 0.6;
+    const onResize = () => {
+      threshold = window.innerHeight * 0.6;
     };
+    const onScroll = () => {
+      bar.hidden = window.scrollY <= threshold;
+    };
+    window.addEventListener("resize", onResize, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
